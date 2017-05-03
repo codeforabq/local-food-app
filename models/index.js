@@ -4,27 +4,23 @@
 
 const Sequelize = require('sequelize');
 
-export default {
+module.exports = function(db) {
 
-  sync: function(db) {
+  return new Promise(function(resolve, reject) {
 
-    return new Promise(function(resolve, reject) {
-
-      this.User = db.define('user', userModel)
-      db.sync().then(function(result) {
-        return result;
-      }, function(err) {
-        return err;
-      });
-
+    this.User = db.define('user', userModel);
+    db.sync().then(function(result) {
+      resolve(this);
+    }, function(err) {
+      reject(Error("Couldn't sync DB"));
     });
 
-  }
+  });
 
 }
 
 var userModel = {
-  username: Sequelize.STRING
+  username: Sequelize.STRING,
   email: Sequelize.STRING,
   passhash: Sequelize.STRING,
 }

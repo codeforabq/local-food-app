@@ -26,23 +26,37 @@ const sequelize = new Sequelize(
   process.env.DB_PASS
 );
 
-models.sync(sequelize).then(function() {
+// Setup our models
+var models;
+Models(sequelize).then(function(result) {
 
-  // Create a test user for now, but in the future just don't do anything
-  return models.User.create({
-    username: "test",
-    email: "test@gmail.com",
-    passhash: ""
-  });
+  // We'll store a reference to all the models inside the models var
+  models = result;
 
+  /*
+   * If you want to make sure that sequelize is working properly, you can
+   * uncomment this block and run the create function
+   * return models.User.create({
+   *   username: "test",
+   *   email: "test@gmail.com",
+   *   passhash: ""
+   * });
+   * * */
+
+}, function(err) {
+  console.log(err);
 });
 
 app.get('/', function(req, res) {
   res.render('generic', {title: "Home Page", message: "Hello World"});
 });
 
-app.get('/about', function(req, res) {
-  res.render('generic', {title: "About", message: "This is the about page"});
+app.get('/signup', function(req, res) {
+  res.render('generic', {title: "Signup", message: "This is the about page"});
+});
+
+app.post('/signup', function(req, res) {
+  // TODO: Create a user
 })
 
 app.listen(3000, function() {
