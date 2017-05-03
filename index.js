@@ -8,6 +8,9 @@ const Sequelize = require('sequelize');
 // Basically, using this to hide certain sensitive things
 require('dotenv').config();
 
+// Custom imports
+const Models = require('./models');
+
 // Init express
 const app = express();
 
@@ -22,6 +25,17 @@ const sequelize = new Sequelize(
   process.env.DB_USER,
   process.env.DB_PASS
 );
+
+models.sync(sequelize).then(function() {
+
+  // Create a test user for now, but in the future just don't do anything
+  return models.User.create({
+    username: "test",
+    email: "test@gmail.com",
+    passhash: ""
+  });
+
+});
 
 app.get('/', function(req, res) {
   res.render('generic', {title: "Home Page", message: "Hello World"});
