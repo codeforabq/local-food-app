@@ -2,6 +2,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const Sequelize = require('sequelize');
+const bodyParser = require('body-parser');
 
 // This import is a little different.  You're going to want to read the docs
 // at https://github.com/motdotla/dotenv
@@ -20,6 +21,9 @@ app.set('view engine', 'handlebars');
 
 // Tell express about our static folder
 app.use(express.static('public'));
+
+// Tell express about body-parser
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Setup sequelize  We can get away with just using the simplest constructor
 // for now
@@ -58,13 +62,22 @@ app.get('/signup', function(req, res) {
   res.render('auth', {title: "Create an Account", signup: true});
 });
 
+app.post('/signup', function(req, res) {
+
+  // Do some basic validation.  Seriously, basic
+  if (req.body.password != req.body.passconfirm) {
+    res.render('auth', {title: "Create an Account", signup: true,
+      error: "Passwords Didn't Match"});
+    return;
+  }
+
+  // Hash the password
+
+});
+
 app.get('/login', function(req, res) {
   res.render('auth', {title: "Login", signup: false});
 });
-
-app.post('/signup', function(req, res) {
-  // TODO: Create a user
-})
 
 app.listen(3000, function() {
   console.log("listening on port 3000");

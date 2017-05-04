@@ -1,4 +1,9 @@
-<form class="narrow-form">
+<form class="narrow-form" method="POST" action="/signup">
+
+  {{#if error}}
+    <p class="text-danger">{{error}}</p>
+  {{/if}}
+
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Username"
       name="username">

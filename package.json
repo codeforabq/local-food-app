@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/codeforabq/local-food-app#readme",
   "dependencies": {
+    "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
