@@ -52,7 +52,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/signup', function(req, res) {
-  res.render('generic', {title: "Signup", message: "This is the about page"});
+  res.render('auth', {title: "Create an Account"});
 });
 
 app.post('/signup', function(req, res) {
