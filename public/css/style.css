@@ -4,7 +4,7 @@ body, html {
 }
 
 .narrow-form {
-  max-width: 330px;
+  width: 330px;
   text-align: center;
 }
 
