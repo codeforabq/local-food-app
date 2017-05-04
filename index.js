@@ -18,6 +18,9 @@ const app = express();
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+// Tell express about our static folder
+app.use(express.static('public'));
+
 // Setup sequelize  We can get away with just using the simplest constructor
 // for now
 const sequelize = new Sequelize(
@@ -52,7 +55,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/signup', function(req, res) {
-  res.render('auth', {title: "Create an Account"});
+  res.render('auth', {title: "Create an Account", signup: true});
+});
+
+app.get('/login', function(req, res) {
+  res.render('auth', {title: "Login", signup: false});
 });
 
 app.post('/signup', function(req, res) {

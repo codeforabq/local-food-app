@@ -1,0 +1,15 @@
+body, html {
+  margin: 0;
+  height: 100%;
+}
+
+.narrow-form {
+  max-width: 330px;
+  text-align: center;
+}
+
+.container.v-center {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
