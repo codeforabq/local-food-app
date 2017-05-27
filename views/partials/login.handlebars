@@ -1,0 +1,28 @@
+<form class="narrow-form">
+
+  {{#if created}}
+    <p class="text-center text-success">Your account was successfully created.
+      Why don't you try logging in?</p>
+  {{/if}}
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Username"
+      name="username">
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" placeholder="Password"
+      name="password">
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block">
+    Login
+  </button>
+
+  <hr />
+
+  <a href="/login" class="btn btn-default btn-block">
+    Create Account
+  </a>
+
+</form>

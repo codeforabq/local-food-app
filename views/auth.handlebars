@@ -1,0 +1,12 @@
+<div class="container v-center">
+  <div class="center-block">
+    <h1 class="text-center">{{ title }}</h1>
+
+    {{#if signup}}
+      {{> signup }}
+    {{else}}
+      {{> login }}
+    {{/if}}
+
+  </div>
+</div>

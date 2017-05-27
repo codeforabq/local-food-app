@@ -17,12 +17,16 @@
   },
   "homepage": "https://github.com/codeforabq/local-food-app#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.7",
     "mysql": "^2.13.0",
+    "node-gyp": "^3.6.1",
     "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "sequelize": "^3.30.4"
   }
 }
