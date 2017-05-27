@@ -1,4 +1,10 @@
 <form class="narrow-form">
+
+  {{#if created}}
+    <p class="text-center text-success">Your account was successfully created.
+      Why don't you try logging in?</p>
+  {{/if}}
+
   <div class="form-group">
     <input type="text" class="form-control" placeholder="Username"
       name="username">
