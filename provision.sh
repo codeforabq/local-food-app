@@ -21,3 +21,8 @@ echo "Installing Node v6.11.0..."
 curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh
 source nodesource_setup.sh
 apt-get install nodejs
+
+echo "Adding .env file..."
+echo "DB_NAME=localfood" >> /vagrant/.env
+echo "DB_USER=localfooduser" >> /vagrant/.env
+echo "DB_PASS=v3gg13s" >> /vagrant/.env
