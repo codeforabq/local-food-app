@@ -11,6 +11,6 @@ Next, cd to `/vagrant` inside the box and run the following commands
 - `npm install`
 - `node index.js`
 
-For Windows users you need to tpye 'npm install --no-bin-links' instead, in refrence to this error https://github.com/npm/npm/issues/9901
+For Windows users you need to tpye `npm install --no-bin-links` instead, in refrence to this error https://github.com/npm/npm/issues/9901
 
 Your site will be running on `localhost:3000`
