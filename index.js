@@ -38,7 +38,7 @@ const sequelize = new Sequelize(
 
 // Setup our models
 var models;
-Models(sequelize).then(function(result) {
+Models.sync(sequelize).then(function(result) {
 
   // We'll store a reference to all the models inside the models var
   models = result;
