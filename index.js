@@ -1,5 +1,4 @@
 // Imports go up here
-const bcrypt = require('bcrypt-nodejs');
 const express = require('express');
 const exphbs = require('express-handlebars');
 const Sequelize = require('sequelize');

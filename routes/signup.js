@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 module.exports = {
 
   getSignup: function(req, res) {

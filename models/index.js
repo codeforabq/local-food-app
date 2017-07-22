@@ -13,6 +13,7 @@ module.exports = {
     return new Promise(function(resolve, reject) {
 
       this.User = db.define('user', userModel);
+
       db.sync().then(function(result) {
         resolve(this);
       }, function(err) {
@@ -20,7 +21,7 @@ module.exports = {
       });
 
     });
-    
+
   }
 
 }

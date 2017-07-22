@@ -1,3 +1,5 @@
+const bcrypt = require('bcrypt');
+
 const Models = require('../models');
 
 module.exports = {
@@ -14,7 +16,23 @@ module.exports = {
     }}).then(function(user) {
 
       // Check passwords
+      bcrypt.compare(req.body.password, user.passhash, function(err, res) {
 
+        if (res == true) {
+
+          // Password correct, give them a session token
+        } else {
+
+          // Password not true, throw back an error, render an error?
+          res.render('auth', {
+            title: "Login",
+            signup: false,
+            formError: { title: "Incorrect Username or Password"}
+          });
+
+        }
+      });
+      
     });
   }
 
